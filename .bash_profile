@@ -28,8 +28,12 @@ fi
 
 #Saved old PS1 to oldps1, and added new PS1
 export oldps1="\h:\W \u\$"
-export PS1="\u:\W \e[0;36m$\e[m "
+export PS1="\u:\W \e[0;36m>>\e[m "
 
 # Adding aliases, to use NeoVim instead of the regular vim in macOS.
 alias vi="vim"
 alias vim='/usr/local/bin/nvim'
+
+#Some git related aliases
+alias gpom="git push origin master"
+alias gs="git status"
