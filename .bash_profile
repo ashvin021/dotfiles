@@ -37,3 +37,6 @@ alias vim='/usr/local/bin/nvim'
 #Some git related aliases
 alias gpom="git push origin master"
 alias gs="git status"
+
+#Alias gcc to gcc instead of clang on Mac
+alias gcc="gcc-10"
