@@ -31,5 +31,5 @@ export oldps1="\h:\W \u\$"
 export PS1="\u:\W \e[0;36m>>\e[m "
 
 
-source ./.functions
-source ./.aliases
+source ~/.functions
+source ~/.aliases
