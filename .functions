@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Function to quickly open a Haskell project
+# with vim and tmux.
+hs-mode() {
+  cd -- "$1"
+  tmux new -t "haskell-time" \; \
+          send-keys 'vim .' C-m \; \
+          split-window -h \; \
+          send-keys 'ghci' C-m \; \
+          send-keys ':! clear' C-m \; \
+          select-pane -t 0 \;
+  cd -
+}
