@@ -30,13 +30,6 @@ fi
 export oldps1="\h:\W \u\$"
 export PS1="\u:\W \e[0;36m>>\e[m "
 
-# Adding aliases, to use NeoVim instead of the regular vim in macOS.
-alias vi="vim"
-alias vim='/usr/local/bin/nvim'
 
-#Some git related aliases
-alias gpom="git push origin master"
-alias gs="git status"
-
-#Alias gcc to gcc instead of clang on Mac
-alias gcc="gcc-10"
+source ./.functions
+source ./.aliases
