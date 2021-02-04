@@ -11,29 +11,45 @@ set smartcase
 set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
+set undofile
 set incsearch
-
+set nohlsearch
+set hidden
+set scrolloff=8
+set foldmethod=indent
+set foldlevel=99
+set signcolumn=yes
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 call plug#begin('~/.vim/plugged')
 
+"General plugins
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'https://github.com/neovimhaskell/haskell-vim.git'
-"Plug 'itchyny/vim-haskell-indent'
-"Plug 'https://tpope.io/vim/surround.git'
+Plug 'https://tpope.io/vim/surround.git'
 Plug 'preservim/nerdtree'
-Plug 'udalov/kotlin-vim'
-Plug 'jiangmiao/auto-pairs'
+Plug 'tmsvg/pear-tree'
 
+"Haskell
+Plug 'https://github.com/neovimhaskell/haskell-vim.git'
+Plug 'Twinside/vim-haskellFold'
+
+"Kotlin
+Plug 'udalov/kotlin-vim'
+
+"Python
+Plug 'tmhedberg/SimpylFold'
 
 "Master branch of gruvbox
 "Plug 'morhetz/gruvbox'
 "Gruvbox fork with better highlighting for Haskell
 Plug 'dkasak/gruvbox'
+
+"Discord Rich Presence
+"Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
 
 call plug#end()
 
@@ -50,8 +66,8 @@ hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 
 "This is to configure the enter key to confirm autocomplete suggestions
 "by coc.nvim
-noremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-unmap <cr>
+" noremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" unmap <cr>
 
 "Remaps key to NERDTreeToggle
 map <C-n> :NERDTreeToggle<CR>
@@ -80,5 +96,3 @@ endif
 "for mouse support
 set mouse=a
 
-"to stop searched terms from staying highlighted
-set nohlsearch

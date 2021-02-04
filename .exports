@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+export EDITOR=nvim
+export PATH_TO_PLAYGROUND=$HOME/Playground
+export PATH_TO_PROJECTS=$HOME/Projects
+
+# ----- Local Exports -----
+# Keep this as the last line in the file
+[ -f ".exports.local" ] && source ".exports.local"

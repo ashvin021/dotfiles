@@ -1,0 +1,18 @@
+[alias]
+        s = status
+        c = commit -m
+        p = push
+
+        pom = push origin master
+        pomn = push origin main
+
+[user]
+        name = Ashvin Arsakularatne
+        email = ashvin.arsakularatne@gmail.com
+[core]
+        editor = nvim
+
+# Includes .gitconfig-uni for working on uni projects
+[includeIf "gitdir:~/OneDrive \- \Imperial College London/"]
+        path = .gitconfig-uni
+
