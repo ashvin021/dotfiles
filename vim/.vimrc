@@ -66,8 +66,9 @@ hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 
 "This is to configure the enter key to confirm autocomplete suggestions
 "by coc.nvim
-" noremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" unmap <cr>
+noremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+unmap <cr>
+
 
 "Remaps key to NERDTreeToggle
 map <C-n> :NERDTreeToggle<CR>
