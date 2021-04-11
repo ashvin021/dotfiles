@@ -53,6 +53,9 @@ Plug 'dkasak/gruvbox'
 
 call plug#end()
 
+"--------------------------------------------------------------------------- 
+"Color scheme stuff
+
 "This sets gruvbox as the colorscheme, the last line here is to 
 "stop tmux interfering with it on vim.
 let g:gruvbox_contrast_dark='hard'
@@ -64,17 +67,38 @@ set t_ut=
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 
+"--------------------------------------------------------------------------- 
+"Remaps
+
 "This is to configure the enter key to confirm autocomplete suggestions
 "by coc.nvim
 noremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 unmap <cr>
-
 
 "Remaps key to NERDTreeToggle
 map <C-n> :NERDTreeToggle<CR>
 
 "Remaps the escape key to jj
 imap jj <Esc>
+
+"--------------------------------------------------------------------------- 
+"Coc Stuff
+
+let g:coc_global_extensions = [
+        \'coc-clangd',
+        \'coc-eslint',
+        \'coc-html',
+        \'coc-json',
+        \'coc-python',
+        \'coc-snippets',
+        \'coc-toml',
+        \'coc-tsserver',
+        \'coc-xml',
+        \'coc-yaml',
+        \]
+
+"--------------------------------------------------------------------------- 
+"Haskell plugin options
 
 filetype plugin indent on
 "haskell-vim shortcuts
@@ -88,6 +112,9 @@ let g:haskell_indent_after_bare_where = 2
 let g:haskell_indent_if = 3 
 let g:haskell_indent_do = 3
 let g:haskell_indent_guard = 2 
+
+"--------------------------------------------------------------------------- 
+"Misc
 
 "fix mouse support in vim for alacritty
 if !has('nvim')
