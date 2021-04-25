@@ -14,5 +14,5 @@
 
 # Includes .gitconfig-uni for working on uni projects
 [includeIf "gitdir:~/OneDrive \- \Imperial College London/"]
-        path = .gitconfig-uni
+        path = .gitconfig.uni
 
