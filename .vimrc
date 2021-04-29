@@ -2,6 +2,7 @@ syntax on
 
 set noerrorbells
 set tabstop=4 softtabstop=4
+set shiftwidth=2
 set expandtab
 set indentexpr
 set relativenumber
@@ -19,6 +20,8 @@ set scrolloff=8
 set foldmethod=indent
 set foldlevel=99
 set signcolumn=yes
+
+filetype plugin indent on
 
 set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
@@ -100,7 +103,6 @@ let g:coc_global_extensions = [
 "--------------------------------------------------------------------------- 
 "Haskell plugin options
 
-filetype plugin indent on
 "haskell-vim shortcuts
 let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
 let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
