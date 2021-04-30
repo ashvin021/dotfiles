@@ -5,41 +5,40 @@
 exclude_regex='\.$|\.\.$|\.exclude*|\.git$|.gitignore|^\.git/|.DS_Store|README.md|backups'
 
 function link() {
+  # Links all files in the current directory to $HOME, preserving 
+  # directory structure.
+
   for file in $(traverse "$PWD" | grep -vE $exclude_regex)
   do
-    target_path="$PWD/$file"
+    source_path="$PWD/$file"
     backup_path="$PWD/backups/$file"
+    backup_dir=${backup_path%/$(basename "$file")}
+
     if [[ ! $file =~ ^\. ]] ; then
       file=".$file"
     fi
+
     symlink_path="$HOME/$file"
+    symlink_dir=${symlink_path%/$(basename "$file")}
 
     # copy the old files to a local backup path
-    [[ -e "${symlink_path}" ]] && cpd ${symlink_path} ${backup_path}
+    [[ -e "${symlink_path}" ]] && copydeep ${symlink_path} ${backup_dir}
 
     # link all the dotfiles to the given symlink_path
-    ln -svfi ${target_path} ${symlink_path} || true
+    mkdir -p "${symlink_dir}" && ln -svf ${source_path} ${symlink_path}
   done
 }
 
 function traverse() {
-  find $1 -type f -print0 | while read -d $'\0' file
-do
-  path="$(cd "$(dirname "$file")"; pwd -P)/$(basename "$file")"
-  echo "${path#*$PWD/}"
-done
-}
+  # Returns the paths relative to $1, of all files contained in $1.
+  # Args
+  # $1 - the path to start the traversal from.
 
-function cpd () {
-  [ -z $1 ] || [ -z $2 ] && {
-    printf "usage: cpd file /path/path1/etc...\n";
-      return 1
-    }
-  mkdir -p "${2%/$(basename "$file")}" || {
-    printf "error: unable to create directory '%s' (check write permission)\n" "$2";
-      return 1
-    }
-  cp "$1" "$2"
+  find $1 -type f -print0 | while read -d $'\0' file
+  do
+   path="$(cd "$(dirname "$file")"; pwd -P)/$(basename "$file")"
+   echo "${path#*$PWD/}"
+  done
 }
 
 function main() {
@@ -47,4 +46,4 @@ function main() {
 }
 
 main
-
+# TODO: Add -i flag to decide whether to pass -i to ln

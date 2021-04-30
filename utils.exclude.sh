@@ -3,12 +3,12 @@
 # Got this part from ajmalsiddiqui/dotfiles, lol.
 # Utility functions for scripts used to sync / bootstrap the dotfiles.
  
-echo_with_prompt () {
+function echo_with_prompt () {
   PROMPT="${PROMPT:-[ .dotfiles ]}"
   echo "$PROMPT $@"
 }
 
-execute_func_with_prompt() {
+function execute_func_with_prompt() {
   # Args
   # $1 - the function to call
   # $2 - the thing this function does
@@ -28,4 +28,20 @@ execute_func_with_prompt() {
 		echo_with_prompt "$2 cancelled by user"
     return 1
 	fi
+}
+
+
+function copydeep () {
+  # Args
+  # $1 - the file to copy
+  # $2 - the directory path to copy to
+  [ -z $1 ] || [ -z $2 ] && {
+    printf "usage: cpd file /path/path1/etc...\n";
+      return 1
+    }
+  mkdir -p "$2" || {
+    printf "error: unable to create directory '%s' (check write permission)\n" "$2";
+      return 1
+    }
+  cp "$1" "$2"
 }
