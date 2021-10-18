@@ -16,3 +16,8 @@
 [includeIf "gitdir:~/OneDrive \- \Imperial College London/"]
         path = .gitconfig.uni
 
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
