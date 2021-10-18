@@ -21,4 +21,5 @@ source ~/.aliases
 eval "$(pyenv init -)"
 
 # Setup for Rust
-source "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
+if [ -e /Users/ashvin/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/ashvin/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
