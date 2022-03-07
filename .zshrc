@@ -35,6 +35,9 @@ else
   export MANPATH=${MANPATH}:$TOOLDIR/man
 fi
 
+# Setup for SICStus
+export PATH=${PATH}:/usr/local/sicstus4.6.0/bin
+
 # Initialise Starship
 eval "$(starship init zsh)"
 

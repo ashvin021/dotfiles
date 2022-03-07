@@ -19,3 +19,6 @@ alias gcc="gcc-9"
 # ----- Shortcuts ----- #
 alias play="cd $PATH_TO_PLAYGROUND"
 alias proj="cd $PATH_TO_PROJECTS"
+
+# ----- Language specific stuff ----- #
+alias sicstus="rlwrap sicstus"
