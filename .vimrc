@@ -63,6 +63,9 @@ Plug 'dense-analysis/ale'
 Plug 'purescript-contrib/purescript-vim'
 Plug 'vmchale/dhall-vim'
 
+"WACC
+Plug 'AndreaMichi/wacc-vim'
+
 "Master branch of gruvbox
 "Plug 'morhetz/gruvbox'
 "Gruvbox fork with better highlighting for Haskell
