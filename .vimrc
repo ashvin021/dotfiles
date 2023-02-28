@@ -59,6 +59,15 @@ Plug 'tmhedberg/SimpylFold'
 "Rust
 Plug 'dense-analysis/ale'
 
+"Cpp / CMake
+Plug 'cdelledonne/vim-cmake'
+
+"LateX
+Plug 'lervag/vimtex'
+
+"Elixir
+Plug 'elixir-editors/vim-elixir'
+
 "PureScript
 Plug 'purescript-contrib/purescript-vim'
 Plug 'vmchale/dhall-vim'
@@ -99,6 +108,13 @@ hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 noremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 unmap <cr>
 
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
 "Remaps key to NERDTreeToggle
 map <C-n> :NERDTreeToggle<CR>
 
@@ -121,6 +137,7 @@ let g:coc_global_extensions = [
         \'coc-tsserver',
         \'coc-xml',
         \'coc-yaml',
+        \'coc-rust-analyzer'
         \]
 
 " Use `[c` and `]c` to navigate diagnostics
@@ -136,7 +153,7 @@ nmap <silent> gr <Plug>(coc-references)
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-function! s:show_documentation()
+function s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
@@ -187,6 +204,15 @@ let g:ale_fixers = {
 \}
 
 let g:ale_fix_on_save = 1
+
+"---------------------------------------------------------------------------
+"LateX Settings
+
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 "---------------------------------------------------------------------------
 "Misc

@@ -22,3 +22,6 @@ alias proj="cd $PATH_TO_PROJECTS"
 
 # ----- Language specific stuff ----- #
 alias sicstus="rlwrap sicstus"
+
+# ----- Set clang++-14 to clang++ for concurrency coursework ----- #
+alias clang++-14="clang++"

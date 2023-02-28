@@ -12,9 +12,10 @@ source ~/.aliases
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Setup for pyenv
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path)"
   eval "$(pyenv init -)"
 fi
 
@@ -38,7 +39,13 @@ fi
 # Setup for SICStus
 export PATH=${PATH}:/usr/local/sicstus4.6.0/bin
 
+# Setup for VTunes profiler
+# source /opt/intel/oneapi/setvars.sh
+
+
 # Initialise Starship
 eval "$(starship init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f "/Users/ashvin/.ghcup/env" ] && source "/Users/ashvin/.ghcup/env" # ghcup-env
