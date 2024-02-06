@@ -2,19 +2,16 @@
         s = status
         c = commit -m
         p = push
+        a = add
 
         pom = push origin master
         pomn = push origin main
 
 [user]
         name = Ashvin Arsakularatne
-        email = ashvin.arsakularatne@gmail.com
+        email = aa9220@ic.ac.uk
 [core]
         editor = nvim
-
-# Includes .gitconfig-uni for working on uni projects
-[includeIf "gitdir:~/OneDrive \- \Imperial College London/"]
-        path = .gitconfig.uni
 
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f

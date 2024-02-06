@@ -13,9 +13,6 @@ export PATH='/Users/ashvin/.ghcup/bin':$PATH
 # Some settings for Node Version Manager
 export NVM_DIR="$HOME/.nvm"
 
-# Chruby for ruby versions, for gitlab runner
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-
 # ----- Local Exports ----- #
 # Keep this as the last line in the file
 [ -f ".exports.local" ] && source ".exports.local"

@@ -14,12 +14,11 @@ source ~/.aliases
 # ----- More Language Stuff ----- #
 
 # Setup for nvm
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Setup for pyenv
 eval "$(pyenv init -)"
 
 # Setup for Rust
 . "$HOME/.cargo/env"
-if [ -e /Users/ashvin/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/ashvin/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
