@@ -205,6 +205,12 @@ require('lazy').setup({
     config = function ()
       vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
     end
+  },
+
+  -- Setup for TLA+
+  {
+    'susliko/tla.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' }
   }
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -225,6 +231,10 @@ require('lazy').setup({
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
+
+-- Set hybrid line numbers
+vim.o.relativenumber = true
+vim.o.number = true
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -451,7 +461,9 @@ local servers = {
   -- clangd = {},
   -- gopls = {},
   -- pyright = {},
-  -- rust_analyzer = {},
+  rust_analyzer = {
+    check = { allTargets = false }
+  },
   -- tsserver = {},
 
   lua_ls = {
